@@ -9,7 +9,6 @@ class AttractionsController < ApplicationController
   end
 
   def create_ride #creates a ride with user and attraction
-
     @attraction = Attraction.find_by(id: params[:id])
     if logged_in? && @attraction
       ride = @attraction.rides.build(:user_id => current_user.id)
@@ -26,11 +25,9 @@ class AttractionsController < ApplicationController
   end
 
   def create
-
     @attraction = Attraction.new(attraction_params)
     authorize @attraction
     if @attraction.save
-
       redirect_to attraction_path(@attraction)
     else
       redirect_to attractions_path
