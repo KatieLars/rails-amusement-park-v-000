@@ -1,0 +1,33 @@
+<h1>New User</h1>
+
+<% if @user && @user.errors.any?%>
+  <%= @user.errors.full_messages.each do |error_message| %>
+    <%= error_message%><br></br>
+  <%end%>
+<%end%>
+
+<%= form_for @user do |f|%>
+  <strong>Name:</strong></br>
+  <%=f.text_field :name%><br></br>
+
+  <strong>Password: </strong></br>
+  <%=f.text_field :password%><br></br>
+
+  <strong>Confirm Password: </strong></br>
+  <%=f.text_field :password_confirmation%><br></br>
+
+  <strong>Height(in inches):</strong></br>
+  <%=f.text_field :height%><br></br>
+
+  <strong>How happy are you? (1-5 scale)</strong></br>
+  <%=f.text_field :happiness%><br></br>
+
+  <strong>How nauseous are you? (1-5 scale)</strong></br>
+  <%=f.text_field :nausea%><br></br>
+
+  <strong>How many tickets are in your pocket?</strong></br>
+  <%=f.text_field :tickets%><br></br>
+
+  <strong>Check box if you are a theme park owner<strong><%=f.check_box :admin, {}, "true", "false"%><br></br>
+  <%= f.submit "Create User" %>
+  <%end%>

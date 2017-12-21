@@ -1,0 +1,14 @@
+<h1>Attractions</h1>
+<ul>
+  <% @attractions.each.with_index(1) do |attraction|%>
+    <%if policy(@attractions).update?%>
+      <li> <%= link_to "Show #{attraction.name}", attraction_path(attraction)%></li>
+    <%else%>
+    <li><%= link_to "Go on #{attraction.name}", attraction_path(attraction)%></li>
+    <%end%>
+  <%end%>
+</ul>
+
+<% if policy(@attractions).new?%>
+  <%=link_to "New Attraction", new_attraction_path%>
+<%end%>

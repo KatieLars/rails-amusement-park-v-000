@@ -1,0 +1,13 @@
+<!-- this is in the sign in page -->
+<h3>Sign In</h3>
+
+<%= flash[:alert] if flash[:alert]%><br></br>
+
+<%=form_for :user do |f| %>
+  <%= f.label :name%>
+  <%= f.text_field :name %></br>
+  <%= f.label :password %>
+  <%= f.text_field :password %></br>
+
+  <%= f.submit "Sign In"%>
+<%end%>

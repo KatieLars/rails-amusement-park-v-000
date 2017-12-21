@@ -1,0 +1,15 @@
+<h1><%=@attraction.name%></h1>
+
+<p><strong>Tickets: <%=@attraction.tickets%></strong></p>
+
+<p><strong>Nauseau Rating: <%=@attraction.nausea_rating%></strong></p>
+
+<p><strong>Happiness Rating: <%=@attraction.happiness_rating%></strong></p>
+
+<p><strong>Minimum Height (in inches): <%=@attraction.min_height%></strong></p>
+
+<%if policy(@attraction).ride?%>
+  <%= link_to "Edit Attraction", edit_attraction_path(@attraction)%>
+<%else%>
+  <%= button_to "Go on this ride", attraction_path(@attraction) %>
+<%end%>
